@@ -146,7 +146,8 @@
                             <h1 class="">With <span class="text-primary">Premium Tech</span></h1>
 
                         </div>
-                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Transform your digital experience with accessories that blend performance, style, and innovation</p>
+                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Transform your digital
+                            experience with accessories that blend performance, style, and innovation</p>
                         <button class="btn btn-primary btn-sm md:btn-lg text-white md:text-xl  shadow-none ">Shop
                             Now</button>
                     </div>
@@ -158,22 +159,28 @@
             </div>
         </section>
         <!-- Product section -->
-         <section class="container py-12">
+        <section class="container py-12">
             <div class="text-center max-w-[800px] mx-auto space-y-2">
                 <h2 class="text-4xl font-bold text-primary">Our Featured Products</h2>
-                <p class="text-black2">Shop our most popular tech accessories trusted by thousands. These best-sellers offer the perfect blend of performance, style, and affordability for every need</p>
+                <p class="text-black2">Shop our most popular tech accessories trusted by thousands. These best-sellers
+                    offer the perfect blend of performance, style, and affordability for every need</p>
             </div>
             <!-- products container -->
-            <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center my-10">
+            <div id="products-container"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center my-10">
                 <!-- products -->
-                 <!-- <div
-                    class="bg-gray-50 rounded-lg overflow-hidden max-w-[350px] shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                    <img src="Assets/Green and White Modern Digital Marketing Agency Professional Instagram Post/Mechanical Keyboard.png" alt="Running Shoes" class="w-full object-cover">
+                <!-- <div
+                    class="bg-gray-50 rounded-lg overflow-hidden max-w-[350px] max-h- shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class=""><img src="${product.image}" alt="Gadgets" class="object-cover"></div>
                     <div class="p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">LimeBreeze Runner</h3>
-                        <p></p>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2 text-ellipsis overflow-hidden text-nowrap">${product.title}</h3>
+                        <p class="text-dark2">${product.description}</p>
+                        <div class="flex items-center mb-2">
+                        ${stars}
+                        <span class="text-gray-600 text-sm ml-2">(${product.rating})</span>
+                         </div>
                         <div class="flex items-center justify-between ">
-                            <span class="text-black1 font-bold text-lg">$199</span>
+                            <span class="text-black1 font-bold text-lg">৳ ${product.price}</span>
                             <button
                                 class="bg-primary font-semibold text-white px-4 py-2 rounded hover:bg-blue-700 transition">
                                 Add to Cart
@@ -184,66 +191,77 @@
 
             </div>
          </section>
-
-         <!-- Review section -->
-          <section class="mx-auto p-12 bg-gray-100">
-            <div class="text-center max-w-[800px] mx-auto space-y-2">
-                <h2 class="text-4xl font-bold text-primary">Customers Review</h2>
-                <p class="text-black2">From gadgets to gaming gear, our customers share how our products enhance their digital lifestyle. Their words inspire us to serve better every day.</p>
-            </div>
-        <!-- review container -->
-              <div id="reviews-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 px-6 my-10">
-                <!-- <div " class="card bg-base-100 w-96 shadow-sm items-center">
-                    <div class="avatar">
-                        <div class="w-24 rounded-full">
-                            <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                    </div>
-                    <div class="card-body flex items-center">
-                        <h2 class="card-title">Card Title</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                        <div class="card-actions justify-end">
-                        
-                        </div>
-                    </div>
-             </div> -->
-              </div>
-          </section>
-
-
          <!-- cart section -->
             <section class="fixed bottom-4 right-4 z-50">
             <div class="cart-toggle bg-primary text-white p-5 h-15 w-15 rounded-full shadow-lg cursor-pointer hover:bg-blue-800 transition">
                 <i class="fa-solid fa-cart-shopping text-xl"></i>
-                <span class="cart-count absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                <span id="cart-count" class=" absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
             </div>
-            <div class="cart-drawer hidden absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl border border-gray-200">
-                <div class="p-4 border-b border-gray-200">
-                    <h3 class="font-bold">Your Cart</h3>
+            <div id="cart-drawer"
+                class="hidden absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl border border-gray-200">
+                <div class="p-4 border-b border-gray-200 space-y-1 ">
+                    <div class="flex justify-between items-center font-semibold">
+                        <h3 class="font-bold">Balance</h3>
+                        <h3>৳ <span id="balance">1000</span></h3>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p><small>Add ৳ 1000 to Wallet </small></p> <button id="add1k"
+                            class="btn tect-white btn-sm shadow-none btn-primary">Add</button>
+                    </div>
+
                 </div>
-                <div class="cart-items p-4 max-h-96 overflow-y-auto">
+
+                <div id="cart-items-container" class=" p-4 max-h-96 overflow-y-auto">
                     <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+                    <!-- cart items -->
+                    <!-- <div class="cart-item flex items-start mb-4 overflow-hidden">
+                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-contain rounded mr-3">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-sm truncate">${item.title}</h4>
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-primary font-bold text-sm">$${(item.price *
+                                    item.quantity).toFixed(2)}</span>
+                                <div class="flex items-center">
+                                    <button
+                                        class="remove-from-cart text-gray-500 hover:text-red-500 mr-2 text-sm flex items-center justify-center"
+                                        data-id="${item.id}">
+                                        <i data-feather="minus" class="w-3 h-3 pointer-events-none"></i>
+                                    </button>
+                                    <span class="text-sm">${item.quantity}</span>
+                                    <button
+                                        class="add-to-cart text-gray-500 hover:text-green-500 ml-2 text-sm flex items-center justify-center"
+                                        data-id="${item.id}">
+                                        <i data-feather="plus" class="w-3 h-3 pointer-events-none"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- cart items -->
                 </div>
                 <div class="cart-summary p-4 border-t border-gray-200">
                     <div class="flex justify-between mb-2">
                         <span>Subtotal:</span>
-                        <span class="cart-subtotal font-medium">$0.00</span>
+                        <span class="cart-subtotal font-medium">৳0.00</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Shipping:</span>
-                        <span class="cart-shipping font-medium">$5.00</span>
+                        <span class="cart-shipping font-medium">৳70.00</span>
                     </div>
                     <div class="coupon-section mb-4">
                         <div class="flex gap-2">
-                            <input type="text" placeholder="Coupon code" class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm">
-                            <button class="apply-coupon bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm font-medium transition">Apply</button>
+                            <input type="text" placeholder="Coupon code"
+                                class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm">
+                            <button
+                                class="apply-coupon bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm font-medium transition">Apply</button>
                         </div>
                         <p class="coupon-message text-xs mt-1 text-green-600 hidden">Coupon applied!</p>
                     </div>
                     <div class="flex justify-between mb-4 font-bold text-lg">
                         <span>Total:</span>
-                        <span class="cart-total">$5.00</span>
-                    </div><button class="checkout-btn w-full bg-primary hover:bg-indigo-700 text-white py-2 rounded-lg transition">Checkout</button>
+                        <span class="cart-total">৳70.00</span>
+                    </div><button
+                        class="checkout-btn w-full bg-primary hover:bg-indigo-700 text-white py-2 rounded-lg transition">Checkout</button>
                 </div>
             </div>
         </section>

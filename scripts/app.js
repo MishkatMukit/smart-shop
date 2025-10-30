@@ -1,10 +1,31 @@
+
+ //dom elements
+ const toggleCart = document.getElementById('shopping-cart')
+ const cartDrawer = document.getElementById('cart-drawer')
+
+
+let cart = [];
+let balance = 2000;
+let allProducts = [];
+
+
+
+// toggling cart
+    toggleCart.addEventListener('click', () => {
+        cartDrawer.classList.toggle('hidden');
+    });
+ 
+//  loading products from api
  const loadAllProducts = async()=>{
     const response = await fetch('../Public/Products.json')
     
-    const allProducts = await response.json()
+    allProducts = await response.json()
     displayAllProducts(allProducts)
     console.log(allProducts)
 }
+
+
+// displaying products
 const displayAllProducts=(products)=>{
     const productsContainer = document.getElementById('products-container')
     
@@ -32,8 +53,7 @@ const displayAllProducts=(products)=>{
                          </div>
                         <div class="flex items-center justify-between ">
                             <span class="text-black1 font-bold text-lg">৳ ${product.price}</span>
-                            <button
-                                class="bg-primary font-semibold text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                            <button onclick = "addToCart(${product.id})" class="bg-primary font-semibold text-white px-4 py-2 rounded hover:bg-blue-700 transition">
                                 Add to Cart
                             </button>
                         </div>
@@ -43,5 +63,46 @@ const displayAllProducts=(products)=>{
         productsContainer.appendChild(productCard)
     })
 
+
+
 }
+
+// add to cart
+const addToCart = (productId) =>{
+    console.log("button clicked", productId, allProducts)
+    const product = allProducts.find(p => p.id === productId);
+
+    if (!product) return;
+    
+    // check if already exists
+    const existingItem = cart.find(item => item.id === productId);
+    
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
+            quantity: 1
+        });
+    }
+    console.log(cart)
+    
+    updateCartCount();
+    // Show success message
+    alert('Item added to cart!');
+}
+function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').innerText = totalItems;
+    console.log(document.getElementById('cart-count').innerText)
+}
+function updateBalance() {
+    document.getElementById('balance').innerText = balance.toFixed(2);
+}
+
+
+
 loadAllProducts()
