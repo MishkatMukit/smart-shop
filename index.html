@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartShop</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/481fde1f12.js" crossorigin="anonymous"></script>
+    <style>
+        .font-inter {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+    </style>
+    <style type="text/tailwindcss">
+        @theme {
+        --color-primary: #016AE7;
+        --color-secondary: #B051E9;
+        --color-black1: #1c1c1c;
+        --color-black2: #1c1c1c90;
+    }
+</style>
+
+</head>
+
+<body class="font-inter">
+    <header class="bg-slate-50s sticky z-10 top-0 bg-white p-2 shadow-lg shadow-[#1c1c1c10]">
+
+
+        <div class="container flex justify-between bg-base-100 ">
+            <div class="flex navbar p-3  items-center justify-between">
+
+                <img class=" h-10" src="assets/logo.png" alt="">
+                <div class="dropdown dropdown-end relative">
+                    <div tabindex="0" role="button" class=" lg:hidden">
+                        <i class="fa-solid fa-bars text-2xl text-primary"></i>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu absolute -right-12 menu-lg dropdown-content text-right text-lg bg-base-100  z-1 mt-3   p-5  shadow">
+                        <a class="hover:" href="#home">
+                            <li>Home</li>
+                        </a>
+                        <a class="hover:" href="#products">
+                            <li>Products</li>
+                        </a>
+                        <a class="hover:" href="#reviews">
+                            <li>Review</li>
+                        </a>
+                        <a class="hover:" href="#contact">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="flex gap-6 font-semibold text-lg text-black1">
+                    <a class="hover:text-primary" href="#home">
+                        <li>Home</li>
+                    </a>
+                    <a class="hover:text-primary" href="#products">
+                        <li>Products</li>
+                    </a>
+                    <a class="hover:text-primary" href="#reviews">
+                        <li>Review</li>
+                    </a>
+                    <a class="hover:text-primary" href="#contact">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <!-- hero section  -->
+        <section class="">
+            <div class="carousel bg-gradient-to-l from-[#6366F140] to-white">
+                <div id="slide1" class="carousel-item relative w-full h-[200px] md:h-auto">
+                    <img class="object-contain" src="Assets/slider-1.png" alt="">
+
+                    <div class="container absolute left-5 right-5 top-1/2 -translate-y-1/2 transform text-black1">
+                        <div class="text-2xl md:text-6xl pb-2 font-bold  space-y-2">
+                            <h1>Premium Tech.</h1>
+                            <h1 class="">Unbeatable Prices.</h1>
+                            <h1 class="">Limited Stock.</h1>
+                            
+                        </div>
+                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Discover premium tech accessories designed to enhance your digital lifestyle. From gaming gear to productivity essentials, find everything you need with fast shipping and unbeatable prices.</p>
+                        <button class="btn btn-primary md:btn-lg text-white text-xl btn-sm shadow-none ">Shop Now</button>
+                        
+                    </div>
+                </div>
+                <div id="slide2" class="carousel-item relative w-full h-[200px] md:h-auto">
+                    <img class="object-contain" src="Assets/slider-2.png" alt="">
+
+                    <div class="container absolute left-5 right-5 top-1/2 -translate-y-1/2 transform text-black1">
+                        <div class="text-2xl md:text-6xl pb-2 font-bold  space-y-2">
+                            <h1>Unlock 10%</h1>
+                            <h1 class="">Savings with</h1>
+                            <h1 class="">Code <span class="text-primary">SMART10</span></h1>
+                            
+                        </div>
+                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Use code SMART10 at checkout and enjoy 10% off your entire order. From wireless headphones to gaming gear, upgrade your tech essentials for less. Limited time offer. Shop now and save smart!</p>
+                        <button class="btn btn-primary md:btn-lg text-white text-xl btn-sm shadow-none ">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/scripts/carousel.js"></script>
+</body>
+
+</html>
