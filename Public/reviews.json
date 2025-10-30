@@ -1,0 +1,32 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Alyssa Perry",
+      "image": "https://static.photos/people/200x200/110",
+      "review": "I love my Smart Watch Series 5! The health tracking features are amazing, and battery lasts long.",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "name": "Sara Ahmed",
+      "image": "https://static.photos/people/200x200/25",
+      "review": "Wireless Bluetooth Headphones are perfect for my workouts! Clear sound and comfortable fit.",
+      "rating": 4.3
+    },
+    {
+      "id": 3,
+      "name": "Tanvir Hossain",
+      "image": "https://static.photos/people/200x200/122",
+      "review": "Gaming Mouse RGB is awesome for gaming — responsive buttons and cool RGB effects.",
+      "rating": 3.8
+    },
+    {
+      "id": 4,
+      "name": "Nadia Karim",
+      "image": "https://static.photos/people/200x200/170",
+      "review": "Mechanical Keyboard feels amazing to type on! The keys are tactile and the build is solid.",
+      "rating": 4.7
+    }
+  ]
+}
