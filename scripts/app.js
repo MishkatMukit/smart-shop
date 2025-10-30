@@ -88,21 +88,65 @@ const addToCart = (productId) =>{
             quantity: 1
         });
     }
-    console.log(cart)
+    // console.log(cart)
     
     updateCartCount();
+    displayCart()
     // Show success message
     alert('Item added to cart!');
 }
-function updateCartCount() {
+const displayCart = ()=>{
+    const cartItemsContainer  = document.getElementById('cart-items-container')
+    // console.log(cartItemsContainer)
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+        // updateCartSummary();
+        console.log('yes')
+        return;
+    }
+    cartItemsContainer.innerHTML=""
+    console.log(cart.length)
+    cart.forEach(item => {
+        const cartCard = document.createElement('div')
+        console.log("from cart",item)
+        cartCard.innerHTML=`
+            <div class="cart-item flex items-start mb-4 pb-4 border-b border-gray-200">
+                <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-contain rounded mr-3">
+                <div class="flex-1">
+                    <h4 class="font-medium text-sm truncate">${item.title}</h4>
+                    <div class="flex justify-between items-center mt-1">
+                        <span class="text-primary font-bold text-sm">৳${(item.price * item.quantity).toFixed(2)}</span>
+                        <div class="flex items-center">
+                            <button 
+                                onclick="decreaseQuantity(${item.id})" 
+                                class="text-gray-500 hover:text-red-500 mr-2 text-sm w-6 h-6 flex items-center justify-center">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="text-sm font-medium mx-1">${item.quantity}</span>
+                            <button 
+                                onclick="increaseQuantity(${item.id})" 
+                                class="text-gray-500 hover:text-green-500 ml-2 text-sm w-6 h-6 flex items-center justify-center">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+        cartItemsContainer.appendChild(cartCard)
+    })
+
+}
+const updateCartCount=()=> {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     document.getElementById('cart-count').innerText = totalItems;
-    console.log(document.getElementById('cart-count').innerText)
+    // console.log(document.getElementById('cart-count').innerText)
 }
-function updateBalance() {
+const updateBalance =() =>{
     document.getElementById('balance').innerText = balance.toFixed(2);
 }
 
 
-
+displayCart()
 loadAllProducts()
