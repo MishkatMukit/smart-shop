@@ -1,6 +1,6 @@
 
   let currentSlide = 1;
-  const totalSlides = 2;
+  const totalSlides = 3;
   const slideInterval = 5000; // 5 seconds
 
   function nextSlide() {

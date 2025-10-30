@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.postimg.cc/9fkywB87/Wireless-Bluetooth-Headphones.png",
+    "title": "Wireless Bluetooth Headphones",
+    "description": "Premium sound quality with noise cancellation and all-day comfort for music lovers.",
+    "price": 2500,
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "image": "https://i.postimg.cc/KYWt35qR/Smart-Watch-Series-5.png",
+    "title": "Smart Watch Series 5",
+    "description": "Track fitness, monitor health, and stay connected with this stylish smartwatch daily.",
+    "price": 3500,
+    "rating": 4.8
+  },
+  {
+    "id": 3,
+    "image": "https://i.postimg.cc/q7q87FL7/Leather-laptop-bag.png",
+    "title": "Leather Laptop Bag",
+    "description": "Professional leather bag with padded protection and organized compartments for everyday use.",
+    "price": 1800,
+    "rating": 4.3
+  },
+  {
+    "id": 4,
+    "image": "https://i.postimg.cc/QMCpMzb9/Portable-Power-Bank-20000m-Ah.png",
+    "title": "Portable Power Bank 20000mAh",
+    "description": "High-capacity portable charger keeps all your devices powered throughout the entire day.",
+    "price": 1500,
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "image": "https://i.postimg.cc/0NjpN4fP/Gaming-Mouse-RGB.png",
+    "title": "Gaming Mouse RGB",
+    "description": "Precision gaming mouse with customizable RGB lighting and programmable buttons for gamers.",
+    "price": 1200,
+    "rating": 4.7
+  },
+  {
+    "id": 6,
+    "image": "https://i.postimg.cc/QMCpMzbF/Mechanical-Keyboard.png",
+    "title": "Mechanical Keyboard",
+    "description": "Durable mechanical switches deliver satisfying tactile feedback for typing and gaming excellence.",
+    "price": 3200,
+    "rating": 4.9
+  },
+  {
+    "id": 7,
+    "image": "https://i.postimg.cc/q7F26Gb6/USB-C-Hub-3-in-1.png",
+    "title": "USB-C Hub 3-in-1",
+    "description": "Expand connectivity with multiple ports for seamless data transfer and device charging.",
+    "price": 1800,
+    "rating": 4.4
+  },
+  {
+    "id": 8,
+    "image": "https://i.postimg.cc/25tnLxcW/Wireless-Charging-Pad.png",
+    "title": "Wireless Charging Pad",
+    "description": "Effortless cable-free charging pad compatible with all Qi-enabled smartphones and devices.",
+    "price": 900,
+    "rating": 4.2
+  },
+  {
+    "id": 9,
+    "image": "https://i.postimg.cc/6QqdQP0N/4k-web-cam.png",
+    "title": "4K Webcam",
+    "description": "Crystal-clear 4K video quality perfect for streaming, meetings, and content creation needs.",
+    "price": 2800,
+    "rating": 4.6
+  },
+  {
+    "id": 10,
+    "image": "https://i.postimg.cc/KYjnYWNP/Portable-SSD-1TB.png",
+    "title": "Portable SSD 1TB",
+    "description": "Lightning-fast portable storage with massive 1TB capacity for all your important files.",
+    "price": 4500,
+    "rating": 4.7
+  },
+  {
+    "id": 11,
+    "image": "https://i.postimg.cc/VNvjNhRv/Laptop-Cooling-Pad.png",
+    "title": "Laptop Cooling Pad",
+    "description": "Powerful cooling fans prevent overheating and boost laptop performance during intensive tasks.",
+    "price": 1000,
+    "rating": 4.2
+  },
+  {
+    "id": 12,
+    "image": "https://i.postimg.cc/xd8KdZRj/Graphics-Tablet-Drawing-Pad.png",
+    "title": "Graphics Tablet Drawing Pad",
+    "description": "Professional-grade pressure-sensitive tablet for digital artists and designers seeking precision control.",
+    "price": 3800,
+    "rating": 4.7
+  }
+]

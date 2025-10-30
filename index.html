@@ -35,7 +35,7 @@
         --color-primary: #016AE7;
         --color-secondary: #B051E9;
         --color-black1: #1c1c1c;
-        --color-black2: #1c1c1c90;
+        --color-black2: #00000095;
     }
 </style>
 
@@ -101,11 +101,18 @@
                             <h1>Premium Tech.</h1>
                             <h1 class="">Unbeatable Prices.</h1>
                             <h1 class="">Limited Stock.</h1>
-                            
+
                         </div>
-                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Discover premium tech accessories designed to enhance your digital lifestyle. From gaming gear to productivity essentials, find everything you need with fast shipping and unbeatable prices.</p>
-                        <button class="btn btn-primary md:btn-lg text-white text-xl btn-sm shadow-none ">Shop Now</button>
-                        
+                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Discover premium tech
+                            accessories designed to enhance your digital lifestyle. From gaming gear to productivity
+                            essentials, find everything you need with fast shipping and unbeatable prices.</p>
+                        <button class="btn btn-primary md:btn-lg text-white md:text-xl btn-sm shadow-none ">Shop
+                            Now</button>
+
+                    </div>
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide3" class="btn btn-circle">❮</a>
+                        <a href="#slide2" class="btn btn-circle">❯</a>
                     </div>
                 </div>
                 <div id="slide2" class="carousel-item relative w-full h-[200px] md:h-auto">
@@ -116,16 +123,107 @@
                             <h1>Unlock 10%</h1>
                             <h1 class="">Savings with</h1>
                             <h1 class="">Code <span class="text-primary">SMART10</span></h1>
-                            
+
                         </div>
-                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Use code SMART10 at checkout and enjoy 10% off your entire order. From wireless headphones to gaming gear, upgrade your tech essentials for less. Limited time offer. Shop now and save smart!</p>
-                        <button class="btn btn-primary md:btn-lg text-white text-xl btn-sm shadow-none ">Shop Now</button>
+                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Use code SMART10 at
+                            checkout and enjoy 10% off your entire order. From wireless headphones to gaming gear,
+                            upgrade your tech essentials for less. Limited time offer. Shop now and save smart!</p>
+                        <button class="btn btn-primary md:btn-lg text-white md:text-xl btn-sm shadow-none ">Shop
+                            Now</button>
+                    </div>
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide1" class="btn btn-circle">❮</a>
+                        <a href="#slide3" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide3" class="carousel-item relative w-full h-[200px] md:h-auto">
+                    <img class="object-contain" src="Assets/slider-3.png" alt="">
+
+                    <div class="container absolute left-5 right-5 top-1/2 -translate-y-1/2 transform text-black1">
+                        <div class="text-2xl md:text-6xl pb-2 font-bold  space-y-2">
+                            <h1>Elevate</h1>
+                            <h1 class="">Your Everyday</h1>
+                            <h1 class="">With <span class="text-primary">Premium Tech</span></h1>
+
+                        </div>
+                        <p class="max-w-[720px] md:flex hidden pb-2 text-black2 font-medium">Transform your digital experience with accessories that blend performance, style, and innovation</p>
+                        <button class="btn btn-primary btn-sm md:btn-lg text-white md:text-xl  shadow-none ">Shop
+                            Now</button>
+                    </div>
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide2" class="btn btn-circle">❮</a>
+                        <a href="#slide1" class="btn btn-circle">❯</a>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Product section -->
+         <section class="container py-12">
+            <div class="text-center max-w-[800px] mx-auto space-y-2">
+                <h2 class="text-4xl font-bold text-primary">Our Featured Products</h2>
+                <p class="text-black2">Shop our most popular tech accessories trusted by thousands. These best-sellers offer the perfect blend of performance, style, and affordability for every need</p>
+            </div>
+            <!-- products container -->
+            <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center my-10">
+                <!-- products -->
+                 <!-- <div
+                    class="bg-gray-50 rounded-lg overflow-hidden max-w-[350px] shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="Assets/Green and White Modern Digital Marketing Agency Professional Instagram Post/Mechanical Keyboard.png" alt="Running Shoes" class="w-full object-cover">
+                    <div class="p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">LimeBreeze Runner</h3>
+                        <p></p>
+                        <div class="flex items-center justify-between ">
+                            <span class="text-black1 font-bold text-lg">$199</span>
+                            <button
+                                class="bg-primary font-semibold text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+         </section>
+         <!-- cart section -->
+            <section class="fixed bottom-4 right-4 z-50">
+            <div class="cart-toggle bg-primary text-white p-5 h-15 w-15 rounded-full shadow-lg cursor-pointer hover:bg-blue-800 transition">
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+                <span class="cart-count absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+            </div>
+            <div class="cart-drawer hidden absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl border border-gray-200">
+                <div class="p-4 border-b border-gray-200">
+                    <h3 class="font-bold">Your Cart</h3>
+                </div>
+                <div class="cart-items p-4 max-h-96 overflow-y-auto">
+                    <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+                </div>
+                <div class="cart-summary p-4 border-t border-gray-200">
+                    <div class="flex justify-between mb-2">
+                        <span>Subtotal:</span>
+                        <span class="cart-subtotal font-medium">$0.00</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span>Shipping:</span>
+                        <span class="cart-shipping font-medium">$5.00</span>
+                    </div>
+                    <div class="coupon-section mb-4">
+                        <div class="flex gap-2">
+                            <input type="text" placeholder="Coupon code" class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm">
+                            <button class="apply-coupon bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm font-medium transition">Apply</button>
+                        </div>
+                        <p class="coupon-message text-xs mt-1 text-green-600 hidden">Coupon applied!</p>
+                    </div>
+                    <div class="flex justify-between mb-4 font-bold text-lg">
+                        <span>Total:</span>
+                        <span class="cart-total">$5.00</span>
+                    </div><button class="checkout-btn w-full bg-primary hover:bg-indigo-700 text-white py-2 rounded-lg transition">Checkout</button>
+                </div>
+            </div>
+        </section>
     </main>
-    <script src="/scripts/carousel.js"></script>
+    <script src="./scripts/utilities.js"></script>
+    <script src="./scripts/app.js"></script>
+    <!-- <script src="scripts/carousel.js"></script> -->
 </body>
 
 </html>
