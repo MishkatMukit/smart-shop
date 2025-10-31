@@ -64,8 +64,8 @@
                         <a class="hover:" href="#reviews">
                             <li>Review</li>
                         </a>
-                        <a class="hover:" href="#contact">
-                            <li>Contact</li>
+                        <a class="hover:" href="#questions">
+                            <li>FAQ</li>
                         </a>
                         <a class="hover:" href="#contact">
                             <li>About Us</li>
@@ -74,22 +74,13 @@
                 </div>
             </div>
             <div class="navbar-center hidden lg:flex">
-                <ul class="flex gap-6 font-semibold text-lg text-black1">
-                    <a class="hover:text-primary" href="#home">
-                        <li>Home</li>
-                    </a>
-                    <a class="hover:text-primary" href="#products">
-                        <li>Products</li>
-                    </a>
-                    <a class="hover:text-primary" href="#reviews">
-                        <li>Review</li>
-                    </a>
-                    <a class="hover:text-primary" href="#contact">
-                        <li>FAQ</li>
-                    </a>
-                    <a class="hover:text-primary" href="#contact">
-                        <li>About us</li>
-                    </a>
+                <ul id="menu" class="flex gap-6 font-semibold text-lg">
+                    <li><a class="hover:text-blue-500" href="#home">Home</a>
+                    </li>
+                    <li><a class="hover:text-blue-500" href="#products">Products</a></li>
+                    <li><a class="hover:text-blue-500" href="#reviews">Review</a></li>
+                    <li><a class="hover:text-blue-500" href="#questions">FAQ</a></li>
+                    <li><a class="hover:text-blue-500" href="#contact">About us</a></li>
                 </ul>
             </div>
         </div>
@@ -97,7 +88,7 @@
     </header>
     <main>
         <!-- hero section  -->
-        <section class="">
+        <section id="home" class="">
             <div class="carousel bg-gradient-to-l from-[#6366F140] to-white">
                 <div id="slide1" class="carousel-item relative w-full h-[200px] md:h-auto">
                     <img class="object-contain" src="Assets/slider-1.png" alt="">
@@ -165,7 +156,7 @@
             </div>
         </section>
         <!-- Product section -->
-        <section class="container py-12">
+        <section id="products" class="container py-12">
             <div class="text-center max-w-[800px] mx-auto space-y-2">
                 <h2 class="text-4xl font-bold text-primary">Our Featured Products</h2>
                 <p class="text-black2">Shop our most popular tech accessories trusted by thousands. These best-sellers
@@ -199,7 +190,7 @@
         </section>
 
         <!-- Review section -->
-        <section class="mx-auto p-12 bg-gray-100">
+        <section id="reviews" class="mx-auto p-12 bg-gray-100">
             <div class="text-center max-w-[800px] mx-auto space-y-2">
                 <h2 class="text-4xl font-bold text-primary">Customers Review</h2>
                 <p class="text-black2">From gadgets to gaming gear, our customers share how our products enhance their
@@ -312,7 +303,7 @@
             </div>
         </section>
         <!-- FAQ section -->
-        <section class="py-12">
+        <section id="questions" class="py-12">
             <div class="text-center max-w-[800px] mx-auto space-y-2 container">
                 <h2 class="text-4xl font-bold text-primary">Frequently Asked Question</h2>
                 <p class="text-black2">Find quick answers to common questions about using SmartShop. Have questions
@@ -353,7 +344,7 @@
             </div>
         </section>
         <!-- about us section -->
-        <section class="bg-gray-100 py-12">
+        <section id="contact" class="bg-gray-100 py-12">
             <div class="container">
                 <div class="text-center max-w-[800px] mx-auto space-y-2">
                     <h2 class="text-4xl font-bold text-primary">About Us</h2>
@@ -362,8 +353,37 @@
                         web technologies with user-centric design principles to build a seamless shopping platform.</p>
                 </div>
                 <!-- developers -->
-                <div>
-
+                <h2 class="text-xl font-bold text-primary py-4 text-center">Meet The DevDuo</h2>
+                <div class="grid lg:grid-cols-2 py-4 gap-8">
+                    <div class="card card-side bg-gradient-to-l from-[#6366F140] to-gray shadow-lg max-h-76">
+                        <figure>
+                            <img
+                            src="https://i.postimg.cc/Nf0jDTPp/mishkat.jpg"
+                            alt="" class="" />
+                        </figure>
+                        <div class="px-8 py-5 font-bold">
+                            <h2 class="lg:my-4">Name : <span class="font-bold">Mishkat Mahabub</span></h2>
+                            <p class="lg:my-4">Id : C233039</p>
+                            <p class="lg:my-4">Department : Computer Science and Engineering</p>
+                            <p class="lg:my-4">Institution : International Islamic University, Chittagong.</p>
+                            <p class="lg:my-4">Contact : ++8801889872845.</p>
+                            </div>
+                        </div>
+                    <div class="card card-side bg-gradient-to-l from-[#6366F140] to-gray shadow-lg max-h-76">
+                        <figure>
+                            <img
+                            src="https://i.postimg.cc/mrdPBwnp/sajid.jpg"
+                            alt="" class="" />
+                        </figure>
+                        <div class="px-8 py-5 font-bold">
+                            <h2 class="lg:my-4">Name : Muhammad Shajedul Islam</h2>
+                            <p class="lg:my-4">Id : C233036</p>
+                            <p class="lg:my-4">Department : Computer Science and Engineering</p>
+                            <p class="lg:my-4">Institution : International Islamic University, Chittagong.</p>
+                            <p class="lg:my-4">Contact : ++8801842295659.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -371,62 +391,39 @@
     </main>
     <footer class="footer footer-horizontal footer-center bg-gray-800 text-white rounded p-10">
         <nav class="grid grid-flow-col gap-4">
-            <ul class="flex gap-6 font-semibold text-lg text-black1">
-                    <a class="hover:text-primary" href="#home">
-                        <li>Home</li>
-                    </a>
-                    <a class="hover:text-primary" href="#products">
-                        <li>Products</li>
-                    </a>
-                    <a class="hover:text-primary" href="#reviews">
-                        <li>Review</li>
-                    </a>
-                    <a class="hover:text-primary" href="#contact">
-                        <li>FAQ</li>
-                    </a>
-                    <a class="hover:text-primary" href="#contact">
-                        <li>About us</li>
-                    </a>
+            <ul class="flex gap-6 font-semibold text-lg">
+                    <li><a class="text-white hover:text-blue-500" href="#home">Home</a>
+                    </li>
+                    <li><a class="text-white hover:text-blue-500" href="#products">Products</a></li>
+                    <li><a class="text-white hover:text-blue-500" href="#reviews">Review</a></li>
+                    <li><a class="text-white hover:text-blue-500" href="#questions">FAQ</a></li>
+                    <li><a class="text-white hover:text-blue-500" href="#contact">About us</a></li>
                 </ul>
         </nav>
         <nav>
-            <div class="grid grid-flow-col gap-4">
-                <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                        </path>
-                    </svg>
-                </a>
-                <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
-                        </path>
-                    </svg>
-                </a>
-                <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-                        </path>
-                    </svg>
-                </a>
+            <h1 class="text-xl py-4">Contact info :</h1>
+            <div class="grid grid-flow-col gap-8">
+                <a href="https://www.facebook.com/md.shajedul.5686/"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a href="https://github.com/MishkatMukit"><i class="fa-brands fa-github fa-2x"></i></a>
+                <a href="https://www.youtube.com/results?search_query=how+to+become+a+web+developer+from+beginner"><i class="fa-brands fa-youtube fa-2x"></i></a>
             </div>
         </nav>
         <aside>
-            <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+            <div class="mb-2">
+            &copy; SmartShop. All rights reserved.
+            </div>
+            <div>
+            Designed by Mishkat Mahabub & Muhammad Shajedul Islam
+            </div>
         </aside>
     </footer>
 
-
+    
     <script src="scripts/utilities.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/reviews.js"></script>
     <script src="scripts/carousel.js"></script>
+    <script src="scripts/navButton.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@ const displayAllReviews = (reviews) =>{
         `
         const reviewCard = document.createElement('div');
         reviewCard.innerHTML=`
-        <div class="card bg-gradient-to-b from-[#016AE720] to-white shadow-xl shadow-gray-300
+        <div class="card bg-gradient-to-b from-[#016AE720] to-white shadow-lg shadow-gray-200
         p-5 w-full items-center">
                 <div class="avatar">
                     <div class=" rounded-full items-center">
