@@ -144,8 +144,20 @@ const displayCart = ()=>{
         `
         cartItemsContainer.appendChild(cartCard)
     })
-
+    updateCartSummary()
 }
+
+const updateCartSummary = ()=>{
+    const subtotal = cart.reduce((sum, item) => sum+(item.price*item.quantity),0);
+    // console.log(subtotal)
+    const delivery = (cart.length<1) ? 0 : 70
+    console.log(cart.length)
+    const total = subtotal + delivery
+    document.querySelector('.cart-subtotal').innerText = `৳${subtotal.toFixed(2)}`;
+    document.querySelector('.cart-delivery').innerText = `৳${delivery.toFixed(2)}`;
+    document.querySelector('.cart-total').innerText = `৳${total.toFixed(2)}`;
+}
+
 const increaseQuantity=(itemID)=>{
     const item = cart.find(item=>item.id === itemID)
     console.log(item)
@@ -171,7 +183,7 @@ const decreaseQuantity=(itemID)=>{
 }
 const removeFromCart=(itemID)=>{
     cart = cart.filter(item=>item.id !== itemID)
-    console.log("from remove cart ", cart)
+    // console.log("from remove cart ", cart)
     updateCartCount()
     displayCart()
 }
@@ -180,10 +192,6 @@ const updateCartCount=()=> {
     document.getElementById('cart-count').innerText = totalItems;
     // console.log(document.getElementById('cart-count').innerText)
 }
-const updateBalance =() =>{
-    document.getElementById('balance').innerText = balance.toFixed(2);
-}
-
-
+updateCartSummary()
 displayCart()
 loadAllProducts()
