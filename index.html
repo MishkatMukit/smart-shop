@@ -111,8 +111,8 @@
 
                     </div>
                     <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide3" class="btn btn-circle">❮</a>
-                        <a href="#slide2" class="btn btn-circle">❯</a>
+                        <button onclick="scrollToSlide('slide3')" class="btn btn-circle">❮</button>
+                        <button onclick="scrollToSlide('slide2')" class="btn btn-circle">❯</button>
                     </div>
                 </div>
                 <div id="slide2" class="carousel-item relative w-full h-[200px] md:h-auto">
@@ -132,8 +132,8 @@
                             Now</button>
                     </div>
                     <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide1" class="btn btn-circle">❮</a>
-                        <a href="#slide3" class="btn btn-circle">❯</a>
+                        <button onclick="scrollToSlide('slide1')" class="btn btn-circle">❮</button>
+                        <button onclick="scrollToSlide('slide3')" class="btn btn-circle">❯</button>
                     </div>
                 </div>
                 <div id="slide3" class="carousel-item relative w-full h-[200px] md:h-auto">
@@ -152,8 +152,8 @@
                             Now</button>
                     </div>
                     <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide2" class="btn btn-circle">❮</a>
-                        <a href="#slide1" class="btn btn-circle">❯</a>
+                        <button onclick="scrollToSlide('slide2')" class="btn btn-circle">❮</button>
+                        <button onclick="scrollToSlide('slide1')" class="btn btn-circle">❯</button>
                     </div>
                 </div>
             </div>
@@ -190,16 +190,17 @@
                 </div> -->
 
             </div>
-         </section>
+        </section>
 
-         <!-- Review section -->
-          <section class="mx-auto p-12 bg-gray-100">
+        <!-- Review section -->
+        <section class="mx-auto p-12 bg-gray-100">
             <div class="text-center max-w-[800px] mx-auto space-y-2">
                 <h2 class="text-4xl font-bold text-primary">Customers Review</h2>
-                <p class="text-black2">From gadgets to gaming gear, our customers share how our products enhance their digital lifestyle. Their words inspire us to serve better every day.</p>
+                <p class="text-black2">From gadgets to gaming gear, our customers share how our products enhance their
+                    digital lifestyle. Their words inspire us to serve better every day.</p>
             </div>
-        <!-- review container -->
-              <div id="reviews-container" class="container grid grid-cols-1 lg:grid-cols-4 gap-10 py-10">
+            <!-- review container -->
+            <div id="reviews-container" class="container grid grid-cols-1 lg:grid-cols-4 gap-10 py-10">
                 <!-- <div " class="card bg-base-100 w-96 shadow-sm items-center">
                     <div class="avatar">
                         <div class="w-24 rounded-full">
@@ -214,20 +215,22 @@
                         </div>
                     </div>
              </div> -->
-              </div>
-          </section>
+            </div>
+        </section>
 
 
-         <!-- cart section -->
-            <section class="fixed bottom-4 right-4 z-50">
-            <div class="cart-toggle bg-primary text-white p-5 h-15 w-15 rounded-full shadow-lg cursor-pointer hover:bg-blue-800 transition">
+        <!-- cart section -->
+        <section class="fixed bottom-4 right-4 z-50">
+            <div
+                class="cart-toggle bg-primary text-white p-5 h-15 w-15 rounded-full shadow-lg cursor-pointer hover:bg-blue-800 transition">
         </section>
         <!-- cart section -->
         <section class="fixed bottom-4 right-4 z-50 ">
             <div id="shopping-cart"
                 class="cart-toggle bg-primary text-white p-5 h-15 w-15 rounded-full shadow-lg cursor-pointer hover:bg-blue-800 transition">
                 <i class="fa-solid fa-cart-shopping text-xl"></i>
-                <span id="cart-count" class=" absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">0</span>
+                <span id="cart-count"
+                    class=" absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">0</span>
             </div>
             <div id="cart-drawer"
                 class="hidden absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl border border-gray-200">
@@ -301,7 +304,7 @@
     <script src="./scripts/utilities.js"></script>
     <script src="./scripts/app.js"></script>
     <script src="scripts/reviews.js"></script>
-    <!-- <script src="scripts/carousel.js"></script> -->
+    <script src="scripts/carousel.js"></script>
 </body>
 
 </html>
