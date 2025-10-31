@@ -9,7 +9,24 @@ let balance = 1000;
 let allProducts = [];
 let discountPercentage = 0;
 let couponApplied = false;
-
+const saveBalance = () => {
+    localStorage.setItem('balance', JSON.stringify(balance));
+}
+const loadBalance = () => {
+    const savedBalance = localStorage.getItem('balance');
+    if(savedBalance){
+        balance = JSON.parse(savedBalance);
+    }
+}
+const saveCart=()=> {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+const loadCart =()=>{
+    const savedCart = localStorage.getItem('cart');
+    if(savedCart){
+        cart = JSON.parse(savedCart)
+    }
+}
 
 // toggling cart-------------------------------------------------------------------------
     toggleCart.addEventListener('click', () => {
@@ -90,7 +107,7 @@ const addToCart = (productId) =>{
         });
     }
     // console.log(cart)
-    
+    saveCart()
     updateCartCount();
     displayCart()
     // Show success message
@@ -170,11 +187,13 @@ const updateCartSummary = ()=>{
 document.getElementById('add1k').addEventListener('click', ()=>{
     balance+=1000
     updateBalance()
+    saveBalance()
 })
 
 // update balance-------------------------------------------------------------------
 const updateBalance =()=>{
-    document.getElementById('balance').innerText = balance.toFixed(2) 
+    document.getElementById('balance').innerText = balance.toFixed(2)
+    saveBalance()
 }
 
 // increase cart item quantity by one-----------------------------------------------
@@ -185,6 +204,7 @@ const increaseQuantity=(itemID)=>{
         item.quantity++;
         updateCartCount()
         displayCart()
+        saveCart()
     }
 }
 
@@ -197,8 +217,10 @@ const decreaseQuantity=(itemID)=>{
         if(item.quantity<1){
             removeFromCart(itemID)
             updateCartSummary()
+            
         }
         else{
+            saveCart()
             updateCartCount()
             displayCart()
         }
@@ -219,7 +241,9 @@ document.querySelector('.checkout-btn').addEventListener('click', ()=>{
     }
     balance-=total
     updateBalance()
+    saveBalance()
     cart=[]
+    saveCart()
     updateCartCount()
     updateCartSummary()
     displayCart()
@@ -235,7 +259,9 @@ const removeFromCart=(itemID)=>{
     updateCartCount()
     updateCartSummary()
     updateBalance()
+    saveBalance()
     displayCart()
+    saveCart()
 }
 
 // discount coupon apply ---------------------------------------------------
@@ -252,7 +278,7 @@ document.getElementById('btn-coupon').addEventListener('click', ()=>{
         discountPercentage = 10;
         
         document.getElementById('input-coupon').value=""
-        alert('✅ Coupon "SMART10" applied! You saved 10%')
+        alert('Coupon "SMART10" applied! You saved 10%')
         
         updateCartSummary()
         displayCart()
@@ -261,7 +287,7 @@ document.getElementById('btn-coupon').addEventListener('click', ()=>{
         alert('Coupon already applied!')
     }
     else{
-        alert('❌ Invalid coupon code! Try "SMART10"')      
+        alert('Invalid coupon code! Try "SMART10"')      
     }
 })
 
@@ -272,7 +298,14 @@ const updateCartCount=()=> {
     document.getElementById('cart-count').innerText = totalItems;
     // console.log(document.getElementById('cart-count').innerText)
 }
-updateBalance()
-updateCartSummary()
-displayCart()
-loadAllProducts()
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Load saved data first
+    loadCart();
+    loadBalance();
+    loadAllProducts();
+
+    updateBalance();
+    updateCartCount();
+    updateCartSummary();
+    displayCart();
+});
