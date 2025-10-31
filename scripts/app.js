@@ -1,21 +1,22 @@
 
- //dom elements
+ //dom elements-------------------------------------------
  const toggleCart = document.getElementById('shopping-cart')
  const cartDrawer = document.getElementById('cart-drawer')
 
 
 let cart = [];
-let balance = 2000;
+let balance = 1000;
 let allProducts = [];
+let discountPercentage = 0;
+let couponApplied = false;
 
 
-
-// toggling cart
+// toggling cart-------------------------------------------------------------------------
     toggleCart.addEventListener('click', () => {
         cartDrawer.classList.toggle('hidden');
     });
  
-//  loading products from api
+//  loading products from api-------------------------------------------------------------
  const loadAllProducts = async()=>{
     const response = await fetch('../Public/Products.json')
     
@@ -25,7 +26,7 @@ let allProducts = [];
 }
 
 
-// displaying products
+// displaying all product cards from api---------------------------------------------------
 const displayAllProducts=(products)=>{
     const productsContainer = document.getElementById('products-container')
     
@@ -67,9 +68,9 @@ const displayAllProducts=(products)=>{
 
 }
 
-// add to cart
+// Add products to cart when add to cart button clicked------------------------------
 const addToCart = (productId) =>{
-    console.log("button clicked", productId, allProducts)
+    // console.log("button clicked", productId, allProducts)
     const product = allProducts.find(p => p.id === productId);
 
     if (!product) return;
@@ -95,6 +96,8 @@ const addToCart = (productId) =>{
     // Show success message
     alert('Item added to cart!');
 }
+
+// display cart items from cart array---------------------------------------------------------------------------
 const displayCart = ()=>{
     const cartItemsContainer  = document.getElementById('cart-items-container')
     // console.log(cartItemsContainer)
@@ -118,7 +121,7 @@ const displayCart = ()=>{
                     <h4 class=" max-w-48 font-medium text-sm overflow-hidden text-ellipsis text-nowrap">${item.title}</h4>
                     <button 
                                 onclick="removeFromCart(${item.id})" 
-                                class="text-red-600 hover:text-red-800 mr-2 absolute -top-2 right-0 text-sm w-3 h-3 flex items-center justify-center">
+                                class="text-red-600 hover:text-red-800 mr-2 absolute -top-2 -right-3 text-sm w-3 h-3 flex items-center justify-center">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                     
@@ -147,17 +150,34 @@ const displayCart = ()=>{
     updateCartSummary()
 }
 
+// update the values of whole cart-----------------------------------------------
 const updateCartSummary = ()=>{
     const subtotal = cart.reduce((sum, item) => sum+(item.price*item.quantity),0);
     // console.log(subtotal)
     const delivery = (cart.length<1) ? 0 : 70
     console.log(cart.length)
-    const total = subtotal + delivery
-    document.querySelector('.cart-subtotal').innerText = `৳${subtotal.toFixed(2)}`;
-    document.querySelector('.cart-delivery').innerText = `৳${delivery.toFixed(2)}`;
-    document.querySelector('.cart-total').innerText = `৳${total.toFixed(2)}`;
+
+    discount = couponApplied ? (subtotal * discountPercentage / 100) : 0;
+    const total = subtotal + delivery - discount
+
+
+    document.querySelector('.cart-subtotal').innerText = `${subtotal.toFixed(2)}`;
+    document.querySelector('.cart-delivery').innerText = `${delivery.toFixed(2)}`;
+    document.querySelector('.cart-total').innerText = `${total.toFixed(2)}`;
 }
 
+// Add money to your account-------------------------------------------------------
+document.getElementById('add1k').addEventListener('click', ()=>{
+    balance+=1000
+    updateBalance()
+})
+
+// update balance-------------------------------------------------------------------
+const updateBalance =()=>{
+    document.getElementById('balance').innerText = balance.toFixed(2) 
+}
+
+// increase cart item quantity by one-----------------------------------------------
 const increaseQuantity=(itemID)=>{
     const item = cart.find(item=>item.id === itemID)
     console.log(item)
@@ -167,6 +187,8 @@ const increaseQuantity=(itemID)=>{
         displayCart()
     }
 }
+
+// decrease quantity of cart item by one--------------------------------
 const decreaseQuantity=(itemID)=>{
     const item = cart.find(item=>item.id === itemID)
     console.log(item)
@@ -174,6 +196,7 @@ const decreaseQuantity=(itemID)=>{
         item.quantity--;
         if(item.quantity<1){
             removeFromCart(itemID)
+            updateCartSummary()
         }
         else{
             updateCartCount()
@@ -181,17 +204,75 @@ const decreaseQuantity=(itemID)=>{
         }
     }
 }
+
+// checkout---------------------------------------------------------------
+document.querySelector('.checkout-btn').addEventListener('click', ()=>{
+    const total = document.querySelector('.cart-total').innerText
+    // console.log(total);
+    if(cart.length===0){
+        alert("your cart is empty")
+        return  
+    }
+    if(balance<total){
+        alert('Insufficient balance! Please add money to your wallet.')
+        return
+    }
+    balance-=total
+    updateBalance()
+    cart=[]
+    updateCartCount()
+    updateCartSummary()
+    displayCart()
+    alert('Purchase successful! Thank you for shopping with us.');
+    cartDrawer.classList.add('hidden');
+
+})
+
+// remove items from cart directly-----------------------------------------
 const removeFromCart=(itemID)=>{
     cart = cart.filter(item=>item.id !== itemID)
     // console.log("from remove cart ", cart)
     updateCartCount()
+    updateCartSummary()
+    updateBalance()
     displayCart()
 }
+
+// discount coupon apply ---------------------------------------------------
+document.getElementById('btn-coupon').addEventListener('click', ()=>{
+    const couponCode = (document.getElementById('input-coupon').value).trim().toUpperCase()
+    // console.log(couponCode)
+
+    if(couponCode==="SMART10" && !couponApplied){
+        if(cart.length===0){
+            alert('Please add items to cart first!')
+            return
+        }
+        couponApplied = true;
+        discountPercentage = 10;
+        
+        document.getElementById('input-coupon').value=""
+        alert('✅ Coupon "SMART10" applied! You saved 10%')
+        
+        updateCartSummary()
+        displayCart()
+    }
+    else if(couponApplied){
+        alert('Coupon already applied!')
+    }
+    else{
+        alert('❌ Invalid coupon code! Try "SMART10"')      
+    }
+})
+
+
+//update cart item count---------------------------------------------------
 const updateCartCount=()=> {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     document.getElementById('cart-count').innerText = totalItems;
     // console.log(document.getElementById('cart-count').innerText)
 }
+updateBalance()
 updateCartSummary()
 displayCart()
 loadAllProducts()

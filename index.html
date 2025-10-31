@@ -240,7 +240,7 @@
                         <h3>৳ <span id="balance">1000</span></h3>
                     </div>
                     <div class="flex items-center justify-between">
-                        <p><small>Add ৳ 1000 to Wallet </small></p> <button id="add1k"
+                        <p><small>Add ৳1000 to Wallet </small></p> <button id="add1k"
                             class="btn tect-white btn-sm shadow-none btn-primary">Add</button>
                     </div>
 
@@ -277,26 +277,31 @@
                 <div class="cart-summary p-4 border-t border-gray-200">
                     <div class="flex justify-between mb-2">
                         <span>Subtotal:</span>
-                        <span class="cart-subtotal font-medium">৳0.00</span>
+                        <h3>৳ <span class="cart-subtotal font-medium">0.00</span></h3>
                     </div>
                     <div class="flex justify-between mb-2">
-                        <span>Delivery:</span>
-                        <span id="delivery" class="cart-delivery font-medium">৳70.00</span>
+                        <h3>Delivery:</h3>
+                        <h3 class="font-medium">৳ <span id="delivery" class="cart-delivery ">70.00</span></h3>
                     </div>
                     <div class="coupon-section mb-4">
                         <div class="flex gap-2">
-                            <input type="text" placeholder="Coupon code"
+                            <input id="input-coupon" type="text" placeholder="Coupon code"
                                 class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm">
-                            <button
-                                class="apply-coupon bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm font-medium transition">Apply</button>
+                            <button id="btn-coupon"
+                                class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm font-medium transition">Apply</button>
                         </div>
                         <p class="coupon-message text-xs mt-1 text-green-600 hidden">Coupon applied!</p>
                     </div>
                     <div class="flex justify-between mb-4 font-bold text-lg">
                         <span>Total:</span>
-                        <span class="cart-total">৳70.00</span>
+                        <h3>৳ <span class="cart-total">70.00</span></h3>
                     </div><button
                         class="checkout-btn w-full bg-primary hover:bg-indigo-700 text-white py-2 rounded-lg transition">Checkout</button>
+                </div>
+                <div class="toast toast-top toast-center hidden">
+                    <div class="alert alert-success">
+                        <span>Message sent successfully.</span>
+                    </div>
                 </div>
             </div>
         </section>

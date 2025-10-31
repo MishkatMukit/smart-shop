@@ -20,7 +20,7 @@ const displayAllReviews = (reviews) =>{
         `;
         const reviewCard = document.createElement('div');
         reviewCard.innerHTML=`
-        <div class="card bg-gradient-to-b from-[#6366F140] to-white shadow-xl shadow-gray-300
+        <div class="card bg-gradient-to-b from-[#016AE720] to-white shadow-xl shadow-gray-300
         p-5 w-full items-center">
                 <div class="avatar">
                     <div class="w-24 rounded-full items-center">
@@ -28,12 +28,12 @@ const displayAllReviews = (reviews) =>{
                     </div>
                 </div>
                 <div class="card-body flex items-center">
-                    <h2 class="card-title">${review.name}</h2>
-                    <p class="text-black text-center">${review.review}</p>
+                    <h2 class="card-title">${review.name}</h2>                  
                     <div class="flex items-center mb-2">
                         ${stars}
                         <span class="text-gray-600 text-sm ml-2">(${review.rating})</span>
                     </div>
+                    <p class="text-[#00000095] text-center">${review.review}</p>
                 </div>
         </div>`
         reviewsContainer.appendChild(reviewCard);
