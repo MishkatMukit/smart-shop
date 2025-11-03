@@ -1,16 +1,27 @@
-// Simple toast function
+// back to top button
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+    } else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// toast
 const showToast = (message, type = 'success') => {
     const toast = document.querySelector('.toast');
     const alert = toast.querySelector('.alert');
-    
-    // Update message and style
+    // msg and style
     alert.className = `alert alert-${type}`;
     alert.querySelector('span').textContent = message;
-    
-    // Show toast
     toast.classList.remove('hidden');
-    
-    // Auto-hide after 3 seconds
+    //hide after 3 seconds
     setTimeout(() => {
         toast.classList.add('hidden');
     }, 3000);
