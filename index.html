@@ -42,7 +42,7 @@
 </head>
 
 <body class="font-inter">
-    <header class="bg-slate-50s sticky z-10 top-0 bg-white p-2 shadow-lg shadow-[#1c1c1c10]">
+    <header class="bg-slate-50s sticky z-10 top-0 bg-white p-1 shadow-lg shadow-[#1c1c1c10]">
 
 
         <div class="container flex justify-between bg-base-100 ">
@@ -54,7 +54,7 @@
                         <i class="fa-solid fa-bars text-2xl text-primary"></i>
                     </div>
                     <ul tabindex="0"
-                        class="menu absolute -right-12 menu-lg dropdown-content text-right text-lg bg-base-100  z-1 mt-3   p-5  shadow">
+                        class="menu absolute -right-12 menu-lg dropdown-content text-right text-lg bg-base-100  z-1 mt-3   p-10  shadow">
                         <a class="hover:" href="#home">
                             <li>Home</li>
                         </a>
@@ -67,8 +67,8 @@
                         <a class="hover:" href="#questions">
                             <li>FAQ</li>
                         </a>
-                        <a class="hover:" href="#contact">
-                            <li>About Us</li>
+                        <a class="hover:" href="#about">
+                            <li>Devs</li>
                         </a>
                     </ul>
                 </div>
@@ -80,7 +80,7 @@
                     <li><a class="hover:text-blue-500" href="#products">Products</a></li>
                     <li><a class="hover:text-blue-500" href="#reviews">Review</a></li>
                     <li><a class="hover:text-blue-500" href="#questions">FAQ</a></li>
-                    <li><a class="hover:text-blue-500" href="#contact">About us</a></li>
+                    <li><a class="hover:text-blue-500" href="#about">Devs</a></li>
                 </ul>
             </div>
         </div>
@@ -218,12 +218,6 @@
             </div>
         </section>
 
-
-        <!-- cart section -->
-        <section class="fixed bottom-4 right-4 z-50">
-            <div
-                class="cart-toggle bg-primary text-white p-5 h-15 w-15 rounded-full shadow-lg cursor-pointer hover:bg-blue-800 transition">
-        </section>
         <!-- cart section -->
         <section class="fixed bottom-4 right-4 z-50 ">
             <div id="shopping-cart"
@@ -232,56 +226,42 @@
                 <span id="cart-count"
                     class=" absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">0</span>
             </div>
+            <!-- sidebar -->
             <div id="cart-drawer"
-                class="hidden absolute bottom-full right-0 mb-4 w-80 bg-white rounded-lg shadow-xl border border-gray-200">
-                <div class="p-4 border-b border-gray-200 space-y-1 ">
+                class="fixed top-0 right-0 z-50 h-screen w-96 bg-white shadow-xl border-l border-gray-200 transform translate-x-full transition-transform duration-300 flex flex-col">
+
+                <!-- close button   -->
+                <button id="close-cart" class="absolute top-4 left-4 text-gray-400 hover:text-red-600 z-10">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+
+                <!-- balance -->
+                <div class="p-4 pt-16 border-b border-gray-200 space-y-1 flex-shrink-0">
                     <div class="flex justify-between items-center font-semibold">
                         <h3 class="font-bold">Balance</h3>
                         <h3>৳ <span id="balance">1000</span></h3>
                     </div>
                     <div class="flex items-center justify-between">
-                        <p><small>Add ৳1000 to Wallet </small></p> <button id="add1k"
-                            class="btn tect-white btn-sm shadow-none btn-primary">Add</button>
+                        <p><small>Add ৳1000 to Wallet</small></p>
+                        <button id="add1k" class="btn text-white btn-sm shadow-none btn-primary">Add</button>
                     </div>
+                </div>
+
+                <!-- cart items -->
+                <div id="cart-items-container" class="p-4 overflow-y-auto flex-1">
+                    
 
                 </div>
 
-                <div id="cart-items-container" class=" p-4 h-[200px] overflow-y-auto">
-                    <!-- <p class="text-gray-500 text-center py-8">Your cart is empty</p> -->
-                    <!-- cart items -->
-                    <!-- <div class="cart-item flex items-start mb-4 overflow-hidden">
-                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-contain rounded mr-3">
-                        <div class="flex-1">
-                            <h4 class="font-medium text-sm truncate">${item.title}</h4>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-primary font-bold text-sm">$${(item.price *
-                                    item.quantity).toFixed(2)}</span>
-                                <div class="flex items-center">
-                                    <button
-                                        class="remove-from-cart text-gray-500 hover:text-red-500 mr-2 text-sm flex items-center justify-center"
-                                        data-id="${item.id}">
-                                        <i data-feather="minus" class="w-3 h-3 pointer-events-none"></i>
-                                    </button>
-                                    <span class="text-sm">${item.quantity}</span>
-                                    <button
-                                        class="add-to-cart text-gray-500 hover:text-green-500 ml-2 text-sm flex items-center justify-center"
-                                        data-id="${item.id}">
-                                        <i data-feather="plus" class="w-3 h-3 pointer-events-none"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- cart items -->
-                </div>
-                <div class="cart-summary p-4 border-t border-gray-200">
-                    <div class="flex justify-between mb-2">
+                <!-- cart summary-->
+                <div class="cart-summary p-4 border-t border-gray-200 flex-shrink-0 bg-white">
+                    <div class="flex justify-between">
                         <span>Subtotal:</span>
                         <h3>৳ <span class="cart-subtotal font-medium">0.00</span></h3>
                     </div>
-                    <div class="flex justify-between mb-2">
+                    <div class="flex justify-between">
                         <h3>Delivery:</h3>
-                        <h3 class="font-medium">৳ <span id="delivery" class="cart-delivery ">70.00</span></h3>
+                        <h3 class="font-medium">৳ <span class="cart-delivery">70.00</span></h3>
                     </div>
                     <div class="coupon-section mb-4">
                         <div class="flex gap-2">
@@ -290,21 +270,27 @@
                             <button id="btn-coupon"
                                 class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm font-medium transition">Apply</button>
                         </div>
-                        <p class="coupon-message text-xs mt-1 text-green-600 hidden">Coupon applied!</p>
+                        <p class="coupon-message text-xs mt-1 text-green-600 hidden">"SMART10" Coupon successfully
+                            applied!</p>
                     </div>
-                    <div class="flex justify-between mb-4 font-bold text-lg">
+                    <div class="flex justify-between mb-2 font-bold text-md">
                         <span>Total:</span>
                         <h3>৳ <span class="cart-total">70.00</span></h3>
-                    </div><button
-                        class="checkout-btn w-full bg-primary hover:bg-indigo-700 text-white py-2 rounded-lg transition">Checkout</button>
-                </div>
-                <div class="toast toast-top toast-center hidden">
-                    <div class="alert alert-success">
-                        <span>Message sent successfully.</span>
                     </div>
+                    <button
+                        class="checkout-btn w-full bg-primary hover:bg-blue-800 text-white py-2 rounded-lg transition">Checkout</button>
                 </div>
             </div>
+
+            <!-- toast-->
+            <div class="toast toast-top toast-center hidden">
+                <div class="alert alert-success">
+                    <span class="font-semibold">Message sent successfully.</span>
+                </div>
+            </div>
+
         </section>
+
         <!-- FAQ section -->
         <section id="questions" class="py-12">
             <div class="text-center max-w-[800px] mx-auto space-y-2 container">
@@ -347,7 +333,7 @@
             </div>
         </section>
         <!-- about us section -->
-        <section id="contact" class="bg-gray-100 py-12">
+        <section id="about" class="bg-gray-100 py-12">
             <div class="container">
                 <div class="text-center max-w-[800px] mx-auto space-y-2">
                     <h2 class="text-4xl font-bold text-primary">About Us</h2>
@@ -364,8 +350,8 @@
                                 src="https://i.postimg.cc/wT1gY3Bg/mishkatmahabub.jpg" alt="Developer photo" />
                             <h2 class="text-2xl font-bold text-gray-800 dark:text-white mt-4">Mishkat Mahabub</h2>
                             <div class="flex gap-4">
-                                <p class="text-black font-semibold">ID : C233039</p>
-                                <p class="text-black font-semibold">Department : CSE</p>
+                                <p class="text-black dark:text-white font-semibold">ID : C233039</p>
+                                <p class="text-black dark:text-white font-semibold">Department : CSE</p>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
                                 Turning ideas into interactive, dynamic websites with clean code and modern design
@@ -377,7 +363,8 @@
                                     class="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition">
                                     <i class="fa-brands fa-github text-2xl"></i>
                                 </a>
-                                <a href="https://mail.google.com/mail/?view=cm&to=mahabubmishkat8@gmail.com" target="_blank"
+                                <a href="https://mail.google.com/mail/?view=cm&to=mahabubmishkat8@gmail.com"
+                                    target="_blank"
                                     class="text-gray-600 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition">
                                     <i class="fa-solid fa-envelope text-2xl"></i>
                                 </a>
@@ -391,8 +378,8 @@
                             <h2 class="text-2xl font-bold text-gray-800 dark:text-white mt-4">Muhammad Shajedul Islam
                             </h2>
                             <div class="flex gap-4">
-                                <p class="text-black font-semibold">ID : C233036</p>
-                                <p class="text-black font-semibold">Department : CSE</p>
+                                <p class="text-black dark:text-white font-semibold">ID : C233036</p>
+                                <p class="text-black dark:text-white font-semibold">Department : CSE</p>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
                                 Passionate web developer crafting responsive and user-friendly websites with modern UI
@@ -405,7 +392,8 @@
                                     <i class="fa-brands fa-github text-2xl"></i>
                                 </a>
                                 <a href="https://mail.google.com/mail/?view=cm&to=muhammadshajedulislam@gmail.com"
-                                    target="_blank" class="text-gray-600 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition">
+                                    target="_blank"
+                                    class="text-gray-600 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition">
                                     <i class="fa-solid fa-envelope text-2xl"></i>
                                 </a>
                             </div>
@@ -424,15 +412,15 @@
                 <li><a class="text-white hover:text-blue-500" href="#products">Products</a></li>
                 <li><a class="text-white hover:text-blue-500" href="#reviews">Review</a></li>
                 <li><a class="text-white hover:text-blue-500" href="#questions">FAQ</a></li>
-                <li><a class="text-white hover:text-blue-500" href="#contact">About us</a></li>
+                <li><a class="text-white hover:text-blue-500" href="#contact">Devs</a></li>
             </ul>
         </nav>
         <nav>
-            <h1 class="text-xl py-4">Contact info :</h1>
+            <h1 class="text-xl py-2">Contact info :</h1>
             <div class="grid grid-flow-col gap-8">
-                <a href="https://www.facebook.com/md.shajedul.5686/"><i class="fa-brands fa-facebook fa-2x"></i></a>
-                <a href="https://github.com/MishkatMukit"><i class="fa-brands fa-github fa-2x"></i></a>
-                <a href="https://www.youtube.com/results?search_query=how+to+become+a+web+developer+from+beginner"><i
+                <a target="_blank" href="https://www.facebook.com/md.shajedul.5686/"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a target="_blank" href="https://github.com/MishkatMukit"><i class="fa-brands fa-github fa-2x"></i></a>
+                <a target="_blank" href="https://www.youtube.com/results?search_query=how+to+become+a+web+developer+from+beginner"><i
                         class="fa-brands fa-youtube fa-2x"></i></a>
             </div>
         </nav>

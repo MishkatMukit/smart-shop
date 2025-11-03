@@ -1,4 +1,23 @@
+// Simple toast function
+const showToast = (message, type = 'success') => {
+    const toast = document.querySelector('.toast');
+    const alert = toast.querySelector('.alert');
+    
+    // Update message and style
+    alert.className = `alert alert-${type}`;
+    alert.querySelector('span').textContent = message;
+    
+    // Show toast
+    toast.classList.remove('hidden');
+    
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        toast.classList.add('hidden');
+    }, 3000);
+}
 
+
+////////////////////////////////
  //dom elements-------------------------------------------
  const toggleCart = document.getElementById('shopping-cart')
  const cartDrawer = document.getElementById('cart-drawer')
@@ -28,10 +47,18 @@ const loadCart =()=>{
     }
 }
 
-// toggling cart-------------------------------------------------------------------------
-    toggleCart.addEventListener('click', () => {
-        cartDrawer.classList.toggle('hidden');
-    });
+// toggling cart------------------------------------------------------------------------
+
+// open sidebar
+toggleCart.addEventListener('click', () => {
+    cartDrawer.classList.remove('translate-x-full');
+});
+
+// close cart sidebar
+document.getElementById('close-cart').addEventListener('click', () => {
+    cartDrawer.classList.add('translate-x-full');
+});
+
  
 //  loading products from api-------------------------------------------------------------
  const loadAllProducts = async()=>{
@@ -64,7 +91,7 @@ const displayAllProducts=(products)=>{
                     <div class=""><img src="${product.image}" alt="Gadgets" class="object-cover"></div>
                     <div class="p-6 flex flex-col">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2 text-ellipsis overflow-hidden text-nowrap">${product.title}</h3>
-                        <p class="text-dark2">${product.description}</p>
+                        
                         <div class="flex items-center mb-2">
                         ${stars}
                         <span class="text-gray-600 text-sm ml-2">(${product.rating})</span>
@@ -111,7 +138,8 @@ const addToCart = (productId) =>{
     updateCartCount();
     displayCart()
     // Show success message
-    alert('Item added to cart!');
+    showToast('Item added to cart!', 'success');
+    // alert('Item added to cart!');
 }
 
 // display cart items from cart array---------------------------------------------------------------------------
@@ -138,8 +166,8 @@ const displayCart = ()=>{
                     <h4 class=" max-w-48 font-medium text-sm overflow-hidden text-ellipsis text-nowrap">${item.title}</h4>
                     <button 
                                 onclick="removeFromCart(${item.id})" 
-                                class="text-red-600 hover:text-red-800 mr-2 absolute -top-2 -right-3 text-sm w-3 h-3 flex items-center justify-center">
-                                <i class="fa-solid fa-xmark"></i>
+                                class="text-white bg-red-500 rounded-full p-2 hover:bg-red-700 mr-2 absolute -top-2 -right-3 text-sm w-3 h-3 flex items-center justify-center">
+                                <small><i class="fa-solid fa-xmark"></i></small>
                             </button>
                     
                     </div>
@@ -188,6 +216,7 @@ document.getElementById('add1k').addEventListener('click', ()=>{
     balance+=1000
     updateBalance()
     saveBalance()
+    showToast("1000 Taka added to your Wallet!","success")
 })
 
 // update balance-------------------------------------------------------------------
@@ -232,11 +261,12 @@ document.querySelector('.checkout-btn').addEventListener('click', ()=>{
     const total = document.querySelector('.cart-total').innerText
     // console.log(total);
     if(cart.length===0){
-        alert("your cart is empty")
+        // alert("your cart is empty")
+        showToast('Please add items to cart first!', 'warning')
         return  
     }
     if(balance<total){
-        alert('Insufficient balance! Please add money to your wallet.')
+        showToast('Insufficient balance! Please add money to your wallet.', 'error')
         return
     }
     balance-=total
@@ -247,8 +277,9 @@ document.querySelector('.checkout-btn').addEventListener('click', ()=>{
     updateCartCount()
     updateCartSummary()
     displayCart()
-    alert('Purchase successful! Thank you for shopping with us.');
-    cartDrawer.classList.add('hidden');
+    // alert('Purchase successful! Thank you for shopping with us.');
+    showToast('Purchase successful! Thank you for shopping with us.', 'success');
+    // cartDrawer.classList.add('hidden');
 
 })
 
@@ -271,23 +302,28 @@ document.getElementById('btn-coupon').addEventListener('click', ()=>{
 
     if(couponCode==="SMART10" && !couponApplied){
         if(cart.length===0){
-            alert('Please add items to cart first!')
+            // alert('Please add items to cart first!')
+            showToast('Your cart is empty', 'warning')
             return
         }
         couponApplied = true;
+        document.querySelector('.coupon-message').classList.remove('hidden')
         discountPercentage = 10;
         
         document.getElementById('input-coupon').value=""
-        alert('Coupon "SMART10" applied! You saved 10%')
+        // alert('Coupon "SMART10" applied! You saved 10%')
+        showToast('Coupon "SMART10" applied! You saved 10%', 'success')
         
         updateCartSummary()
         displayCart()
     }
     else if(couponApplied){
-        alert('Coupon already applied!')
+        // alert('Coupon already applied!')
+        showToast('Coupon already applied!', 'info')
     }
     else{
-        alert('Invalid coupon code! Try "SMART10"')      
+         showToast('Invalid coupon code! Try "SMART10"', 'error')
+        // alert('Invalid coupon code! Try "SMART10"')      
     }
 })
 
